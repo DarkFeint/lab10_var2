@@ -23,7 +23,7 @@ AppSupportURL={#URL}
 AppUpdatesURL={#URL}
 
 
-DefaultDirName={pf}\{#Name}
+DefaultDirName={commonpf}\{#Name}
 
 DefaultGroupName={#Name}
 
@@ -32,7 +32,7 @@ OutputDir=C:\Git\lab_itog\installer
 OutputBaseFileName=Strannaya_fignya
 
 
-SetupIconFile=C:\Users\Vlad\Downloads\coming_to_the_river.ico
+SetupIconFile=C:\Git\lab_itog\coming_to_the_river.ico
 
 
 Compression=lzma
@@ -49,7 +49,7 @@ Name: "russian"; MessagesFile: "compiler:Languages\Russian.isl"; LicenseFile: "L
 
 [Tasks]
 
-Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
+Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked 
 
 
 
@@ -57,6 +57,8 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 
 
 Source: "C:\Build\lab_itog\Release\lab_itog.exe"; DestDir: "{app}"; Flags: ignoreversion
+
+Source: "C:\Git\lab_itog\coming_to_the_river.ico"; DestDir: "{app}"
 
 
 Source: "C:\Git\lab_itog\images\*"; DestDir: "{app}\images\"; Flags: ignoreversion recursesubdirs createallsubdirs
@@ -69,9 +71,9 @@ Source: "C:\Git\lab_itog\installer\VC_redist.x64.exe"; DestDir: "{tmp}"; Flags: 
 
 [Icons]
 
-Name: "{group}\{#Name}"; Filename: "{app}\{#ExeName}"
+Name: "{group}\{#Name}"; Filename: "{app}\{#ExeName}";IconFilename: "{app}\coming_to_the_river.ico"
 
-Name: "{commondesktop}\{#Name}"; Filename: "{app}\{#ExeName}"; Tasks: desktopicon
+Name: "{commondesktop}\{#Name}"; Filename: "{app}\{#ExeName}";IconFilename: "{app}\coming_to_the_river.ico"; Tasks: desktopicon
 
 
 
