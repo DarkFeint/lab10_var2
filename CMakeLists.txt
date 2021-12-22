@@ -6,7 +6,7 @@ set(PROJECT_NAME lab_itog)				 # имя проекта
 project("${PROJECT_NAME}")
 
 
-set(CMAKE_CXX_STANDARD 20)			 # устанавливаем 17 стандарт языка
+set(CMAKE_CXX_STANDARD 17)			 # устанавливаем 17 стандарт языка
 set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
 
@@ -21,14 +21,22 @@ add_executable("${PROJECT_NAME}" lab_itog.cpp
                     inc/sauce.cpp
 					inc/hats.hpp)
 											
-target_link_libraries("${PROJECT_NAME}" sfml-graphics-s-d
-						  sfml-window-s-d
-						  sfml-system-s-d
-						  opengl32
+target_link_libraries("${PROJECT_NAME}" debug sfml-graphics-s-d
+						  debug sfml-window-s-d
+						  debug sfml-system-s-d
+						  debug sfml-audio-s-d
+						  )
+						  
+target_link_libraries("${PROJECT_NAME}" optimized sfml-graphics-s
+						  optimized sfml-window-s
+						  optimized sfml-system-s
+						  optimized sfml-audio-s
+						  )
+						  
+target_link_libraries("${PROJECT_NAME}" opengl32
 						  freetype
 						  winmm
 						  gdi32
-						  sfml-audio-s-d
 						  openal32
 						  flac
 						  vorbisenc
